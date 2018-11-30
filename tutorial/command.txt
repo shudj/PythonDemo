@@ -1,0 +1,25 @@
+Scrapy命令
+scrapy startproject tutorial    创建一个tutorial的爬虫项目
+scrapy crawl dmoz 执行爬虫名为dmoz的爬虫
+scrapy crawl dmoz -o items.json 将爬虫保存为json
+
+scrapy.cfg: 项目的配置文件
+tutorial/: 该项目的python模块。之后您将在此加入代码。
+tutorial/items.py: 项目中的item文件.
+tutorial/pipelines.py: 项目中的pipelines文件.
+tutorial/settings.py: 项目的设置文件.
+tutorial/spiders/: 放置spider代码的目录.
+
+提取Item
+Selectors选择器
+Scrapy使用了一直基于Xpath和CSS表达式机制：Scrapy Selectors
+/html/head/title: 选择HTML文档中 <head> 标签内的 <title> 元素
+/html/head/title/text(): 选择上面提到的 <title> 元素的文字
+//td: 选择所有的 <td> 元素
+//div[@class="mine"]: 选择所有具有 class="mine" 属性的 div 元素
+
+Selector四个基本的方法
+xpath(): 传入xpath表达式，返回该表达式所对应的所有节点的selector list列表 。
+css(): 传入CSS表达式，返回该表达式所对应的所有节点的selector list列表.
+extract(): 序列化该节点为unicode字符串并返回list。
+re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。
